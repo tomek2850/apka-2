@@ -1,3 +1,12 @@
+
+document.getElementById('deleteTimeBtn').addEventListener('click', function() {
+const tableBody = document.getElementById('tableBody');
+if (tableBody.rows.length > 0) {
+tableBody.deleteRow(tableBody.rows.length - 1);
+}
+});
+
+
 const tabId = 'myUniqueTabId'; // Unikalny identyfikator zakładki
 const selectElement = document.getElementById('options');
 
@@ -12,10 +21,12 @@ saveDropdownSelection(); // Zapisz do LocalStorage
 document.getElementById('saveTimeBtn').addEventListener('click', function() {
 const tableBody = document.getElementById('tableBody');
 const currentTime = new Date().toLocaleTimeString(); // Pobranie aktualnej godziny
+const rowCount = tableBody.rows.lenght + 1;
+
 // Utworzenie nowego wiersza
 const newRow = document.createElement('tr');
 const newCell = document.createElement('td');
-newCell.textContent = currentTime;
+newCell.textContent = '${rowCount}.${currentTime}';
 newRow.appendChild(newCell);
 // Dodanie nowego wiersza do tabeli
 tableBody.appendChild(newRow);
