@@ -37,7 +37,7 @@ saveToLocalStorage(); // Zapisz do LocalStorage
 document.getElementById('deleteTimeBtn').addEventListener('click', function() {
 const tableBody = document.getElementById('tableBody');
 // Sprawdzenie, czy tabela ma jakieś wpisy
-if (tableBody.rows.length > 0) {
+if (tableBody && tableBody.rows.length > 0) {
 tableBody.deleteRow(tableBody.rows.length - 1); // Usunięcie ostatniego wiersza
 saveToLocalStorage(); // Zapisz do LocalStorage
 }
