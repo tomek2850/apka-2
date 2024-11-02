@@ -21,7 +21,7 @@ saveDropdownSelection(); // Zapisz do LocalStorage
 document.getElementById('saveTimeBtn').addEventListener('click', function() {
 const tableBody = document.getElementById('tableBody');
 const currentTime = new Date().toLocaleTimeString(); // Pobranie aktualnej godziny
-const rowCount = tableBody.rows.lenght + 1;
+const rowCount = tableBody.rows.length + 1;
 
 // Utworzenie nowego wiersza
 const newRow = document.createElement('tr');
