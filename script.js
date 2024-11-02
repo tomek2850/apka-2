@@ -26,7 +26,7 @@ const rowCount = tableBody.rows.lenght + 1;
 // Utworzenie nowego wiersza
 const newRow = document.createElement('tr');
 const newCell = document.createElement('td');
-newCell.textContent = `${rowCount.currentTime`;
+newCell.textContent = `${rowCount}.${currentTime}`;
 newRow.appendChild(newCell);
 // Dodanie nowego wiersza do tabeli
 tableBody.appendChild(newRow);
