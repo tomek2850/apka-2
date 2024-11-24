@@ -23,11 +23,33 @@ const tableBody = document.getElementById('tableBody');
 const currentTime = new Date().toLocaleTimeString(); // Pobranie aktualnej godziny
 const rowCount = tableBody.rows.length + 1;
 
-// Utworzenie nowego wiersza
-const newRow = document.createElement('tr');
-const newCell = document.createElement('td');
-newCell.textContent = `${rowCount}.${currentTime}`;
-newRow.appendChild(newCell);
+    // Utworzenie nowego wiersza
+
+    const newRow = document.createElement('tr');
+
+
+
+    // Kolumna z numeracją
+
+    const numberCell = document.createElement('td');
+
+    numberCell.textContent = rowCount;
+
+
+
+    // Kolumna z czasem
+
+    const timeCell = document.createElement('td');
+
+    timeCell.textContent = currentTime;
+
+
+
+    // Dodanie komórek do wiersza
+
+    newRow.appendChild(numberCell);
+
+    newRow.appendChild(timeCell);
 // Dodanie nowego wiersza do tabeli
 tableBody.appendChild(newRow);
 saveToLocalStorage(); // Zapisz do LocalStorage
@@ -48,7 +70,14 @@ function saveToLocalStorage() {
 const tableBody = document.getElementById('tableBody');
 const times = [];
 for (let i = 0; i < tableBody.rows.length; i++) {
-    times.push(tableBody.rows[i].cells[0].textContent);
+    const row = tableBody.rows[i];
+
+        const number = row.cells[0].textContent; // Numeracja
+
+        const time = row.cells[1].textContent; // Czas
+
+        times.push({ number, time }); // Zapisz obiekt z numerem i czasem
+
     }
     localStorage.setItem(tabId + '_savedTimes', JSON.stringify(times)); // Użyj unikalnego klucza
 }
